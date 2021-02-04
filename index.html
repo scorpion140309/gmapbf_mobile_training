@@ -18,12 +18,13 @@
 		<script type="text/javascript" src="./js/GMAPBF_TRAINING.js"></script>
 		<script type="text/javascript" src="./js/Quiz4Class.js"></script>
 		<script type="text/javascript" src="./js/gmapbf_test.js"></script>
+<!--
 		<script data-ad-client="ca-pub-8976415508564777" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+-->
 	</head>
 
 	<body onload="Init()">
 		<form name="formName" method="post" action="./pathToProgramFile">
-			<p>問題と選択肢の順序は日替わりです。</p>
 			<p>
 				<table border="0">
 					<tr>
@@ -65,7 +66,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input id="okng_0" type="button" value="0" style="width: 100%;">
+						<input id="correct_or_not_0" type="button" value="0" style="width: 100%;">
 					</td>
 					<td>
 						<input id="ans0" type="button" value="0" style="width: 100%;" onclick="GMAPBF_Anser(0)">
@@ -73,7 +74,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input id="okng_1" type="button" value="1" style="width: 100%;">
+						<input id="correct_or_not_1" type="button" value="1" style="width: 100%;">
 					</td>
 					<td>
 						<input id="ans1" type="button" value="1" style="width: 100%;" onclick="GMAPBF_Anser(1)">
@@ -81,7 +82,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input id="okng_2" type="button" value="2" style="width: 100%;">
+						<input id="correct_or_not_2" type="button" value="2" style="width: 100%;">
 					</td>
 					<td>
 						<input id="ans2" type="button" value="2" style="width: 100%;" onclick="GMAPBF_Anser(2)">
@@ -89,7 +90,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input id="okng_3" type="button" value="3" style="width: 100%;">
+						<input id="correct_or_not_3" type="button" value="3" style="width: 100%;">
 					</td>
 					<td>
 						<input id="ans3" type="button" value="3" style="width: 100%;" onclick="GMAPBF_Anser(3)">
@@ -141,6 +142,17 @@
 				</tr>
 			</table>
 
+			<!-- Back -->
+			<table border="0" width="100%" >
+				<tr height="200">
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" value="GMAP-BF対策 TOP" style="width: 100%;" onclick="location.href='../GMAP/Test_GMAP.html' ">
+					</td>
+				</tr>
+			</table>
 		</form>
 
 

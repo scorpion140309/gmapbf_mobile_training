@@ -26,34 +26,19 @@ class GMAPBF_TRAINING
 	//
 	SetDatabase_()
 	{
-		this.qa_database_ = new Array(
-			BusinessStrategyDatabase,
-			MarketingDatabase,
-			AccountingDatabase,
-			HumanResourceManagementDatabase,
+		// 20210204
+		this.ary_quiz_database_ = new Array(
+			BSD,
+			MKD,
+			ACD,
+			HRD,
 			);
+	
 		this.current_rnd_pattern_ = 0;
 		this.current_ans_ = -1;
 
-		this.qa_database_.forEach(element=> element.sort());
-		for (let i = 0; i < this.qa_database_.length;i++)
-		{
-			this.qa_database_[i].sort(
-				function(a,b)
-				{
-					let ret_result = 0;
-					if( a.CmpID() < b.CmpID() )
-					{
-						ret_result = -1;
-					}
-					else if( a.CmpID() > b.CmpID() )
-					{
-						ret_result = 1;
-					} 
-					return ret_result;
-				});
-		}
-
+		//
+		this.ary_quiz_database_ .forEach(qd => qd.ShuffleQuiz());
 		
 		this.my_quiz_ = new Quiz4();
 
@@ -84,15 +69,15 @@ class GMAPBF_TRAINING
 		}
 
 		//
-		this.ary_btn_okng_ = new Array();
-		const ary_okng_id =
+		this.ary_btn_correct_or_not_ = new Array();
+		const ary_correct_or_not_id =
 		[
-			'okng_0','okng_1','okng_2','okng_3',
+			'correct_or_not_0','correct_or_not_1','correct_or_not_2','correct_or_not_3',
 		];
-		for (let i = 0; i < ary_okng_id.length; i++)
+		for (let i = 0; i < ary_correct_or_not_id.length; i++)
 		{
-			let elm = document.getElementById(ary_okng_id[i])
-			this.ary_btn_okng_.push(elm);
+			let elm = document.getElementById(ary_correct_or_not_id[i])
+			this.ary_btn_correct_or_not_.push(elm);
 		}
 		return;
 	}
@@ -101,11 +86,10 @@ class GMAPBF_TRAINING
 	SetCategoryItems_()
 	{
 		this.selector_category_.options.length = 0;
-	
-		const ary_category = ['経営戦略','マーケティング','アカウンティング','人・組織']
-		for (let i = 0; i < ary_category.length; i++)
+		for (let i = 0; i < this.ary_quiz_database_.length; i++)
 		{
-			this.selector_category_.options[i] = new Option(ary_category[i]);
+			let str_category = this.ary_quiz_database_[i].CategoryName();
+			this.selector_category_.options[i] = new Option(str_category);
 		}
 		//
 		this.selector_category_.options.selectedIndex = 0;
@@ -117,9 +101,7 @@ class GMAPBF_TRAINING
 	SetQuizeIdItems_()
 	{
 		const category_id = this.selector_category_.options.selectedIndex;
-		this.q_num_ = this.qa_database_[category_id].length;
-		// this.selector_quiz_id_ = document.getElementById('quiz_id');
-        //this.q_num_ = 20;	// 出題数
+		this.q_num_ = this.ary_quiz_database_[category_id].GetQuizNum();
 		this.selector_quiz_id_.options.length = 0;
 	
 		for (let i = 0; i < this.q_num_; i++)
@@ -132,14 +114,14 @@ class GMAPBF_TRAINING
         return;
     }
 
-    // OK/NG ボタンの文字、背景を初期化する。
+    // True / False ボタンの文字、背景を初期化する。
 	ResetOkNgButtons_()
 	{
-		for (let i = 0; i < this.ary_btn_okng_.length; i++)
+		for (let i = 0; i < this.ary_btn_correct_or_not_.length; i++)
 		{
-			this.ary_btn_okng_[i].style.backgroundColor = '#e0e0e0e0';
-			this.ary_btn_okng_[i].value = i;
-			this.ary_btn_okng_[i].style.backgroundImage = 'linear-gradient(0deg, #d0d0d0, #f0f0f0)';
+			this.ary_btn_correct_or_not_[i].style.backgroundColor = '#e0e0e0e0';
+			this.ary_btn_correct_or_not_[i].value = i;
+			this.ary_btn_correct_or_not_[i].style.backgroundImage = 'linear-gradient(0deg, #d0d0d0, #f0f0f0)';
 		}
 		return;
     }
@@ -154,19 +136,19 @@ class GMAPBF_TRAINING
 	//
     GetQuestion_(a_category_id, a_quiz_id)
     {
-		return this.qa_database_[a_category_id][a_quiz_id].GetQuestion();
+		return this.ary_quiz_database_[a_category_id].GetQuiz(a_quiz_id);
     }
 	
 	//
     GetAnsers_(a_category_id, a_quiz_id)
     {
-		return this.qa_database_[a_category_id][a_quiz_id].GetAnsPattern();
+		return this.ary_quiz_database_[a_category_id].GetAnserPattern(a_quiz_id);
     }
 	
 	//
 	GetReference_(a_category_id, a_quiz_id)
     {
-		return this.qa_database_[a_category_id][a_quiz_id].GetReference();
+		return this.ary_quiz_database_[a_category_id].GetReference(a_quiz_id);
     }
 
 	//
@@ -196,12 +178,12 @@ class GMAPBF_TRAINING
 		this.text_area_qestion_.value = this.GetQuestion_(id_category, id_quiz);
 
 		// 選択肢番号
-		for (let i = 0; i < this.ary_btn_okng_.length; i++)
+		for (let i = 0; i < this.ary_btn_correct_or_not_.length; i++)
 		{
-			let item_okng = this.ary_btn_okng_[i];
-			item_okng.style.backgroundColor = '#e0e0e0e0';
-			item_okng.value = i;
-			item_okng.style.backgroundImage = 'linear-gradient(0deg, #d0d0d0, #f0f0f0)';
+			let item_correct_or_not = this.ary_btn_correct_or_not_[i];
+			item_correct_or_not.style.backgroundColor = '#e0e0e0e0';
+			item_correct_or_not.value = i;
+			item_correct_or_not.style.backgroundImage = 'linear-gradient(0deg, #d0d0d0, #f0f0f0)';
 		}
 
 		// 選択肢
@@ -230,19 +212,19 @@ class GMAPBF_TRAINING
 	ShowAnser_and_Reference(a_ans_id)
 	{
 		// 解答表示
-		for (let i = 0; i < this.ary_btn_okng_.length; i++)
+		for (let i = 0; i < this.ary_btn_correct_or_not_.length; i++)
 		{
-			let flag_okng = (i == this.current_ans_);
-			let str_okng = '';
-			let col_okng = 'linear-gradient(0deg, #d0a0d0, #f0a0f0)';
-			if (flag_okng)
+			let flag_correct_or_not = (i == this.current_ans_);
+			let str_correct_or_not = '';
+			let col_correct_or_not = 'linear-gradient(0deg, #d0a0d0, #f0a0f0)';
+			if (flag_correct_or_not)
 			{
-				str_okng = '✓';
-				col_okng = 'linear-gradient(0deg, #a0e0a0, #a0f0a0)';
+				str_correct_or_not = '✓';
+				col_correct_or_not = 'linear-gradient(0deg, #a0e0a0, #a0f0a0)';
 			}
-			this.ary_btn_okng_[i].value = str_okng;
-			this.ary_btn_okng_[i].style.backgroundImage = col_okng;
-			this.ary_btn_ans_[i].style.backgroundImage = col_okng;
+			this.ary_btn_correct_or_not_[i].value = str_correct_or_not;
+			this.ary_btn_correct_or_not_[i].style.backgroundImage = col_correct_or_not;
+			this.ary_btn_ans_[i].style.backgroundImage = col_correct_or_not;
 		}
 	
 		//

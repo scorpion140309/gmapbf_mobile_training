@@ -8,6 +8,7 @@ let st_gmap_training = null;
 //
 function Init()
 {
+	//
 	st_gmap_training = new GMAPBF_TRAINING();
 	st_gmap_training.ShowQuestion();
 	return;
