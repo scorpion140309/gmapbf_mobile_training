@@ -1,5 +1,5 @@
 //
-const ACD = new QuizDatabase(
+const DB_Acounting = new QuizDatabase(
 	'アカウンティング',
 	new Array(
         new QuizSingleData('流動負債について、正しく説明しているのはどれか？', '営業サイクル中または短期間に支払う負債である。', '長期的（1年を超える）負債である。', '主に財務活動（資金調達活動）に対応する。', '社債、退職給付引当金、賞与引当金などがある。', '3-7貸借対照表（負債＋純資産）'),

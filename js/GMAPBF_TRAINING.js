@@ -28,10 +28,10 @@ class GMAPBF_TRAINING
 	{
 		// 20210204
 		this.ary_quiz_database_ = new Array(
-			BSD,
-			MKD,
-			ACD,
-			HRD,
+			DB_BusinessStrategy,
+			DB_Marketing,
+			DB_Acounting,
+			DB_HumanResourceManagemen,
 			);
 	
 		this.current_rnd_pattern_ = 0;

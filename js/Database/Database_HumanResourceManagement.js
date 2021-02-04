@@ -1,5 +1,5 @@
 //
-const HRD = new QuizDatabase(
+const DB_HumanResourceManagemen = new QuizDatabase(
 	'人・組織',
 	new Array(
           new QuizSingleData('人・組織のマネジメントに影響を及ぼす外部要因に「含まれない」ものはどれか？', '経営理念', '法的規制', '技術的進歩', '労働組合', '5-2 人・組織のマネジメントに影響を及ぼす要因'),

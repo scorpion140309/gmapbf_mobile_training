@@ -1,5 +1,5 @@
 //
-const MKD = new QuizDatabase(
+const DB_Marketing = new QuizDatabase(
 	'マーケティング',
 	new Array(
           new QuizSingleData('以下のうち、マーケティング・ミックスに最も関係が深いものはのはどれか？', '4P', '5R', '6 Tools', '5つの競争要因', '2-3 マーケティング・マネジメント'),
