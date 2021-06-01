@@ -19,7 +19,9 @@
 		<script type="text/javascript" src="./js/GMAPBF_TRAINING.js"></script>
 		<script type="text/javascript" src="./js/Quiz4Class.js"></script>
 		<script type="text/javascript" src="./js/gmapbf_test.js"></script>
+		<!--
 		<script data-ad-client="ca-pub-8976415508564777" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		-->
 	</head>
 
 	<body onload="Init()">
@@ -59,10 +61,15 @@
 						>question</textarea>
 					</td>
 				</tr>
+			</table>
+
+			<table border="0" width="100%" >
 				<tr>
-					<td></td>
 					<td align="center">選択肢</td>
 				</tr>
+			</table>
+			
+			<table border="0" width="100%" >
 				<tr>
 					<td>
 						<input id="correct_or_not_0" type="button" value="0" style="width: 100%;">
@@ -95,48 +102,49 @@
 						<input id="ans3" type="button" value="3" style="width: 100%;" onclick="GMAPBF_Anser(3)">
 					</td>
 				</tr>
+			</table>
+
+			<table width="100%">
 				<tr>
-					<td></td>
 					<td align="center">解説</td>
 				</tr>
 				<tr>
-					<td></td>
 					<td>
 						<textarea readonly id="reference_id" cols="40" rows="4" style="color:#0080F0"
 						>ref</textarea>
 					</td>
 				</tr>
-				<tr>
-					<td></td>
-					<td>
-					<table width="100%">
-						<tr>
-							<td style="width:40%;">
-								<input name="id_btn_go" type="button" value="もどる" style="width:100%;" onclick="GMAPBF_Q(-1)">
-							</td>
-							<td style="width:20%;" align="center">
-								<select id="quiz_id" style="width:60%; text-align:-webkit-center;" onchange="GMAPBF_Q(0)"></select>
-							</td>
-							<td style="width:40%;">
-								<input name="id_btn_back" type="button" value="すすむ" style="width:100%;" onclick="GMAPBF_Q(1)">
-							</td>
-						</tr>
-
-					<table>
-					</td>
-				</tr>
 			</table>
 
-			<!-- Ad Space -->
-			<table border="0" width="100%" >
-				<tr height="100">
-					<td></td>
-					<td align="center"></td>
-				</tr>
+			<!-- forward, select, back -->
+			<table width="100%">
 				<tr>
-					<td></td>
-					<td align="center">
-						<iframe src=	"https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=293&l=ur1&category=amazonrotate&f=ifr&linkID=ed40cbcc13c85a1d633cb2720757276c&t=scorpionassoc-22&tracking_id=scorpionassoc-22" width="640" height="100" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+					<td style="width:40%;">
+						<input name="id_btn_go" type="button" value="もどる" style="width:100%;" onclick="GMAPBF_Q(-1)">
+					</td>
+					<td style="width:20%;" align="center">
+						<select id="quiz_id" style="width:60%; text-align:-webkit-center;" onchange="GMAPBF_Q(0)"></select>
+					</td>
+					<td style="width:40%;">
+						<input name="id_btn_back" type="button" value="すすむ" style="width:100%;" onclick="GMAPBF_Q(1)">
+					</td>
+				</tr>
+
+			<table>
+
+			<!-- Ad -->
+			<table border="0" width="100%" >
+				<tr>
+					<td	align="center"?
+						<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- scorpion140309_githubpages_wide -->
+						<ins class="adsbygoogle"
+							style="display:inline-block;width:728px;height:90px"
+							data-ad-client="ca-pub-8976415508564777"
+							data-ad-slot="9506366843"></ins>
+						<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
 					</td>
 				</tr>
 			</table>
