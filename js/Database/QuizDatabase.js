@@ -22,13 +22,6 @@ class QuizSingleData
     }
 
     //
-    //SetRand(a_rand)
-    //{
-    //    //
-    //    this.rand_ = a_rand;
-    //    return;
-    //}
-    //
     GetQuestion()
     {
         return this.question_;

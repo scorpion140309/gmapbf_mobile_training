@@ -26,14 +26,9 @@ class GMAPBF_TRAINING
 	//
 	SetDatabase_()
 	{
-		// 20210204
-		this.ary_quiz_database_ = new Array(
-			DB_BusinessStrategy,
-			DB_Marketing,
-			DB_Acounting,
-			DB_HumanResourceManagemen,
-			);
-	
+		//
+		this.qd_ = new QuizDatabase_ALL();
+		this.ary_quiz_database_ = this.qd_.GetQuizArray();
 		this.current_rnd_pattern_ = 0;
 		this.current_ans_ = -1;
 

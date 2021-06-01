@@ -1,0 +1,62 @@
+body
+{
+	background-color : #e1e1e1;
+	color : #404040;
+	font-size: 16pt;
+	-webkit-text-size-adjust: 100%;
+}
+
+a:link { color: #4040ff; }
+a:visited { color: #404080; }
+a:hover { color: #ff0000; }
+a:active { color: #ff8000; }
+
+textarea
+{
+	font-family : inherit;
+	font-size : 75%;
+	width:100%;
+	background-color: #F0F0FF
+}
+
+button, input, select
+{
+	font-family : inherit;
+}
+
+input[type="radio"]
+{
+	transform: scale(4.0);
+	margin-top: 1.0em;
+	margin-left: 1.0em;
+	margin-right: 1.0em;
+}
+
+
+input[type="button"]
+{
+   border: 1px solid #3c7fb1; /* 枠線 */
+   border-radius: 0.3em;      /* 角丸 */
+   padding: 3%;
+   font-size : 75%;
+}
+
+input[type="button"]:hover
+{
+   /* input要素のうちtype属性値がbuttonのものに対して装飾 */
+   background-image: linear-gradient(0deg, #a7d9f5, #eaf6fd); /* グラデーション */
+   border: 1px solid #3c7fb1; /* 枠線 */
+   border-radius: 0.3em;      /* 角丸 */
+}
+
+input[type="button"]:active
+{
+   /* input要素のうちtype属性値がbuttonのものに対して装飾 */
+   background-image: linear-gradient(0deg, #a7d9f5, #eaf6fd); /* グラデーション */
+   border: 1px solid #68d3db; /* 枠線 */
+   border-radius: 0.3em;      /* 角丸 */
+   color: #ff8000;
+}
+
+
+
