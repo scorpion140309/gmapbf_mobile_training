@@ -2,7 +2,7 @@ body
 {
 	background-color : #e1e1e1;
 	color : #404040;
-	font-size: 16pt;
+	font-size: 14pt;
 	-webkit-text-size-adjust: 100%;
 }
 
@@ -14,7 +14,7 @@ a:active { color: #ff8000; }
 textarea
 {
 	font-family : inherit;
-	font-size : 75%;
+	font-size : 70%;
 	width:100%;
 	background-color: #F0F0FF
 }
@@ -38,7 +38,7 @@ input[type="button"]
    border: 1px solid #3c7fb1; /* 枠線 */
    border-radius: 0.3em;      /* 角丸 */
    padding: 3%;
-   font-size : 75%;
+   font-size : 70%;
 }
 
 input[type="button"]:hover
