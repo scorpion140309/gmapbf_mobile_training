@@ -18,11 +18,11 @@
 			{
 				this.my_rand_init_();
 			}
-			afasf_ttoo = ary_value[0] ^ (ary_value[0] << 11);
+			tmp_value = ary_value[0] ^ (ary_value[0] << 11);
 			ary_value[0] = ary_value[1];
 			ary_value[1] = ary_value[2];
 			ary_value[2] = ary_value[3];
-			ary_value[3] = (ary_value[3] ^ (ary_value[3] >> 19)) ^ (afasf_ttoo ^ (afasf_ttoo >> 8));
+			ary_value[3] = (ary_value[3] ^ (ary_value[3] >> 19)) ^ (tmp_value ^ (tmp_value >> 8));
 			return ary_value[3];
 		}
 	};
